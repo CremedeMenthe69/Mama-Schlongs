@@ -27,14 +27,21 @@ export const getAbout = unstable_cache(
 
 // Every save creates a new <prefix><timestamp>.json record.
 // The newest one is what the site shows; older ones are kept as history.
+// If storage isn't connected yet (or has a hiccup), the site shows its
+// "nothing on the menu yet" placeholder instead of failing to build.
 async function fetchLatest<T>(prefix: string): Promise<T | null> {
-  const { blobs } = await list({ prefix });
-  if (!blobs.length) return null;
-  const latest = blobs.sort(
-    (a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
-  )[0];
-  // Each record has a unique address and never changes, so it's safe to cache
-  const res = await fetch(latest.url, { cache: "force-cache" });
-  if (!res.ok) throw new Error(`Couldn't read ${prefix} record`);
-  return (await res.json()) as T;
+  try {
+    const { blobs } = await list({ prefix });
+    if (!blobs.length) return null;
+    const latest = blobs.sort(
+      (a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
+    )[0];
+    // Each record has a unique address and never changes, so it's safe to cache
+    const res = await fetch(latest.url, { cache: "force-cache" });
+    if (!res.ok) return null;
+    return (await res.json()) as T;
+  } catch (err) {
+    console.error(`Couldn't load ${prefix} from storage:`, (err as Error).message);
+    return null;
+  }
 }
