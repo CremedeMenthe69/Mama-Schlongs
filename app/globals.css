@@ -87,7 +87,8 @@ a { color: inherit; }
 .mm-frame.mm-wide { display: block; }
 .mm-media { display: block; max-width: 100%; max-height: 64vh; margin: 0 auto; }
 
-.mm-caption { font-size: 1.45rem; line-height: 1.5; max-width: 34ch; margin: 1.6rem auto 0; }
+.mm-caption { font-size: 1.45rem; line-height: 1.5; max-width: 34ch; margin: 1.6rem auto 0; white-space: pre-line; }
+.mm-caption + .mm-caption { margin-top: .8rem; }
 .mm-underline { display: block; width: 180px; margin: .4rem auto 0; }
 
 /* Table props */
