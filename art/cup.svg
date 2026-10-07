@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 132" role="img" aria-label="Red plastic cup">
+<defs><filter id="mm-wobble" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter><filter id="mm-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.15" numOctaves="2" seed="9" result="t"/><feColorMatrix in="t" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 -1.2 0.42" result="w"/><feComposite in="w" in2="SourceGraphic" operator="in" result="wm"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="wm"/></feMerge></filter></defs>
+<g filter="url(#mm-grain)"><g filter="url(#mm-wobble)" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M55 34 L66 2 L73 4 L62 36 Z" fill="#fbf8f2"/>
+<path d="M58 25 L67 28 M61 16 L70 19 M64 7 L72 10" stroke="#c8102e" stroke-width="3"/>
+<path d="M17 27 L83 27 L74 124 Q50 131 26 124 Z" fill="#cf1f2b"/>
+<g stroke="none" fill="#ff7a7a" opacity=".6"><ellipse cx="32" cy="50" rx="3" ry="2"/><ellipse cx="46" cy="50" rx="3" ry="2"/><ellipse cx="60" cy="50" rx="3" ry="2"/><ellipse cx="72" cy="50" rx="3" ry="2"/><ellipse cx="38" cy="64" rx="3" ry="2"/><ellipse cx="52" cy="64" rx="3" ry="2"/><ellipse cx="66" cy="64" rx="3" ry="2"/><ellipse cx="32" cy="78" rx="3" ry="2"/><ellipse cx="46" cy="78" rx="3" ry="2"/><ellipse cx="60" cy="78" rx="3" ry="2"/><ellipse cx="70" cy="78" rx="3" ry="2"/><ellipse cx="38" cy="92" rx="3" ry="2"/><ellipse cx="52" cy="92" rx="3" ry="2"/><ellipse cx="65" cy="92" rx="3" ry="2"/><ellipse cx="34" cy="106" rx="3" ry="2"/><ellipse cx="48" cy="106" rx="3" ry="2"/><ellipse cx="62" cy="106" rx="3" ry="2"/></g>
+<ellipse cx="50" cy="27" rx="33" ry="7" fill="#e5444f"/>
+<ellipse cx="50" cy="28" rx="27" ry="4.5" fill="#3a1a0e" stroke-width="2"/>
+<path d="M27 36 L34 116" stroke="#fbf8f2" stroke-width="4" opacity=".55"/>
+</g></g></svg>

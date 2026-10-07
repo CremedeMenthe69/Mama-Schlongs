@@ -1,0 +1,138 @@
+/* ───────────── Mama Schlong's: the room ───────────── */
+:root {
+  --red: #c8102e;      /* tablecloth + sign */
+  --cloth: #fbf8f2;    /* tablecloth white */
+  --ink: #1b1b1b;      /* marker ink */
+  --paper: #e9e8e4;    /* drawing paper (from the boys' sketch) */
+  --green: #2f6b3a;    /* chianti glass */
+  --wood: #8a5a2b;     /* picture frame */
+  --sign: "Lobster", Georgia, cursive;
+  --hand: "Gochi Hand", "Comic Sans MS", cursive;
+  --wobble: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  min-height: 100vh;
+  font-family: var(--hand);
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% 40%, transparent 50%, rgba(0,0,0,.32) 100%),
+    repeating-conic-gradient(var(--red) 0 25%, var(--cloth) 0 50%) 0 0 / 64px 64px;
+  background-attachment: fixed;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px dashed var(--green); outline-offset: 3px; }
+
+.mm-art svg { display: block; width: 100%; height: auto; }
+
+/* Awning */
+.mm-awning {
+  position: relative; height: 44px;
+  background: repeating-linear-gradient(90deg, var(--red) 0 44px, var(--cloth) 44px 88px);
+  border-bottom: 3px solid var(--ink);
+}
+.mm-awning::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 22px;
+  background:
+    radial-gradient(circle at 22px 0, var(--red) 20px, var(--ink) 20px 23px, transparent 23px) 0 0 / 88px 23px,
+    radial-gradient(circle at 66px 0, var(--cloth) 20px, var(--ink) 20px 23px, transparent 23px) 0 0 / 88px 23px;
+}
+
+.mm-wrap { width: min(1000px, 100% - 2rem); margin: 0 auto; padding: 3rem 0 4rem; position: relative; z-index: 1; }
+
+/* Sign / header */
+.mm-sign {
+  display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+  background: radial-gradient(ellipse at center, #f4f3ef 45%, var(--paper) 100%);
+  border: 3px solid var(--ink); border-radius: var(--wobble);
+  box-shadow: 6px 8px 0 rgba(0,0,0,.28);
+  padding: 1rem 1.5rem;
+}
+.mm-logo { width: 118px; height: auto; flex: none; margin: -2.6rem 0 -1rem -.5rem; transform: rotate(-3deg); filter: drop-shadow(3px 4px 0 rgba(0,0,0,.18)); }
+.mm-title { display: flex; flex-direction: column; align-items: center; margin-right: auto; text-decoration: none; }
+.mm-title h1 {
+  margin: 0; font-family: var(--sign); font-weight: 400;
+  font-size: clamp(2.3rem, 6vw, 3.6rem); line-height: 1; color: var(--red);
+  text-shadow: 2px 2px 0 var(--cloth), 4px 4px 0 var(--green);
+}
+.mm-title span { display: block; font-family: var(--sign); font-size: clamp(1.4rem, 3.4vw, 2rem); line-height: 1; margin-top: .15rem; color: var(--red); text-shadow: 1.5px 1.5px 0 var(--cloth), 3px 3px 0 var(--green); }
+.mm-nav { display: flex; gap: .75rem; flex-wrap: wrap; }
+.mm-tab {
+  font-size: 1.15rem; text-decoration: none; padding: .35rem 1rem;
+  background: var(--cloth); border: 2.5px solid var(--ink); border-radius: var(--wobble);
+  box-shadow: 2px 3px 0 var(--ink); transform: rotate(-1.5deg);
+}
+.mm-tab:nth-child(2) { transform: rotate(1.5deg); }
+.mm-tab[aria-current="page"] { background: var(--red); color: var(--cloth); }
+
+/* Menu card */
+.mm-menu {
+  margin-top: 2rem; text-align: center;
+  background: radial-gradient(ellipse at center, #f4f3ef 45%, var(--paper) 100%);
+  border: 3px solid var(--ink); border-radius: var(--wobble);
+  box-shadow: 8px 10px 0 rgba(0,0,0,.28);
+  padding: 1.75rem clamp(1rem, 4vw, 3rem) 2.25rem;
+}
+.mm-menu h2 { font-family: var(--sign); font-weight: 400; color: var(--red); font-size: clamp(2rem, 5vw, 2.8rem); margin: 0; }
+.mm-served { font-size: 1.15rem; margin: .2rem 0 1.5rem; }
+
+.mm-frame {
+  display: inline-block; max-width: 100%;
+  background: var(--paper); padding: 10px;
+  border: 14px solid var(--wood);
+  outline: 3px solid var(--ink); outline-offset: 0;
+  box-shadow: inset 0 0 0 3px var(--ink), 7px 9px 0 rgba(0,0,0,.3);
+}
+.mm-frame.mm-wide { display: block; }
+.mm-media { display: block; max-width: 100%; max-height: 64vh; margin: 0 auto; }
+
+.mm-caption { font-size: 1.45rem; line-height: 1.5; max-width: 34ch; margin: 1.6rem auto 0; }
+.mm-underline { display: block; width: 180px; margin: .4rem auto 0; }
+
+/* Table props */
+.mm-prop { position: fixed; bottom: 14px; z-index: 0; display: none; filter: drop-shadow(5px 6px 0 rgba(0,0,0,.25)); }
+.mm-cup { left: 28px; width: 92px; }
+.mm-chianti { right: 28px; width: 104px; }
+@media (min-width: 1240px) { .mm-prop { display: block; } }
+
+.mm-footer { text-align: center; margin-top: 2.25rem; }
+.mm-footer span { display: inline-block; background: var(--cloth); border: 2.5px solid var(--ink); border-radius: var(--wobble); padding: .4rem 1.1rem; font-size: 1.05rem; }
+
+/* About */
+.mm-about { display: grid; grid-template-columns: minmax(0, 260px) 1fr; gap: 2.25rem; text-align: left; align-items: start; margin-top: 1.5rem; }
+.mm-polaroid { background: #fff; padding: 10px 10px 2.4rem; border: 2.5px solid var(--ink); box-shadow: 5px 6px 0 rgba(0,0,0,.28); transform: rotate(-3deg); position: relative; }
+.mm-polaroid img { display: block; width: 100%; }
+.mm-polaroid span { position: absolute; left: 0; right: 0; bottom: .55rem; text-align: center; font-size: 1.25rem; }
+.mm-about p { font-size: 1.3rem; line-height: 1.6; margin: 0 0 1.1rem; max-width: 60ch; }
+@media (max-width: 680px) { .mm-about { grid-template-columns: 1fr; } .mm-polaroid { max-width: 260px; margin: 0 auto; } }
+
+/* Kitchen (admin) */
+.mm-kitchen { text-align: left; max-width: 680px; margin-left: auto; margin-right: auto; }
+.mm-label { display: block; font-family: var(--sign); color: var(--red); font-size: 1.6rem; margin: 1.75rem 0 .5rem; }
+.mm-hint { font-size: 1.05rem; margin: 0 0 .75rem; }
+.mm-input, .mm-lined {
+  width: 100%; font: inherit; font-size: 1.25rem; color: var(--ink);
+  border: 2.5px solid var(--ink); border-radius: 6px; padding: .55rem .9rem; background: #fff;
+}
+.mm-lined { line-height: 32px; padding-top: 0; padding-bottom: 0; resize: vertical;
+  background: repeating-linear-gradient(#fff 0 31px, #b9d3ea 31px 32px); background-attachment: local; }
+.mm-drop { border: 3px dashed var(--ink); border-radius: var(--wobble); background: #fff; padding: 1.75rem 1rem; text-align: center; cursor: pointer; font-size: 1.25rem; }
+.mm-drop.over { background: #fde8eb; border-color: var(--red); }
+.mm-drop small { display: block; font-size: 1rem; margin-top: .3rem; }
+.mm-drop img { max-height: 240px; max-width: 100%; display: block; margin: 0 auto .75rem; }
+.mm-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+.mm-btn {
+  font: inherit; font-size: 1.3rem; cursor: pointer;
+  background: var(--red); color: var(--cloth);
+  border: 3px solid var(--ink); border-radius: var(--wobble);
+  padding: .45rem 1.6rem; box-shadow: 3px 4px 0 var(--ink);
+}
+.mm-btn:active { transform: translate(2px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.mm-btn:disabled { opacity: .55; cursor: not-allowed; }
+.mm-btn.mm-ghost { background: var(--cloth); color: var(--ink); }
+.mm-note { font-size: 1.1rem; }
+.mm-error { font-size: 1.1rem; color: var(--red); }
+.mm-now { background: #fff; border: 2.5px solid var(--ink); border-radius: 6px; padding: .6rem .9rem; font-size: 1.1rem; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
