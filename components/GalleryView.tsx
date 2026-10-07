@@ -24,6 +24,11 @@ function prettyDate(d: string) {
   return isNaN(date.getTime()) ? d : date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 }
 
+// A blank line starts a new paragraph; a single Enter is kept as a line break
+function toParagraphs(text: string) {
+  return text.replace(/\r\n/g, "\n").split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
+}
+
 // ─── Viewers ─────────────────────────────────────────────────────────────────
 
 function AudioViewer({ src }: { src: string }) {
@@ -125,9 +130,9 @@ export default function GalleryView({ work }: { work: Work | null }) {
           {work ? <MediaRenderer work={work} /> : <img src="/mamas-boys.jpg" alt="Mama's boys" className="mm-media" />}
         </div>
 
-        <p className="mm-caption">
-          {work ? work.caption : "Nothing on the menu yet. My boys say hello."}
-        </p>
+        {toParagraphs(work ? work.caption : "Nothing on the menu yet. My boys say hello.").map((para, i) => (
+          <p key={i} className="mm-caption">{para}</p>
+        ))}
         {(work?.caption || !work) && <Underline />}
       </section>
     </Shell>
